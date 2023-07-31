@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>To Do Decentralized Application</title>
+	<script src="main.js"></script>
+	<script src="https://cdn.ethers.io/lib/ethers-5.7.1.umd.min.js" type="application/javascript"></script>
+	<title>Centered Form</title>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+	<style>
+	
+		/* Paragraph styles */
+		p {
+			text-align: center;
+			font-size: 20px;
+			margin-top: 50px;
+		}
+
+		/* Form styles */
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			margin-top: 50px;
+		}
+		/* Input and select element styles */
+		input[type=text],
+		select {
+			width: 90%;
+			padding: 12px 20px;
+			margin: 8px 550px;
+			box-sizing: border-box;
+			border: 2px solid #ccc;
+			border-radius: 4px;
+		}
+
+		input[type=number],
+		select {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border: 2px solid #ccc;
+			border-radius: 4px;
+		}
+		/* Submit button styles */
+		input[type=submit] {
+			background-color: #4CAF50;
+			color: white;
+			padding: 12px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		input[type=submit]:hover {
+			background-color: #45a049;
+		}
+			/* Button styles */
+			button {
+			background-color: #4CAF50;
+			color: white;
+			padding: 12px 24px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer !important;
+			font-size: 16px;
+			font-weight: bold;
+			display: block;
+			margin: 50px auto 0;
+		}
+		/* Button styles on hover */
+		button:hover {
+			background-color: #3e8e41;
+		}
+
+		span {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+
+
+		/* Style the links inside the navigation bar */
+		.navCon a {
+			float: left;
+			display: block;
+			font-size: 1.4rem !important;
+			font-weight: bold;
+			color: white;
+			background: #000;
+			padding: 4px 20px;
+			border-radius: 5px;
+			margin-right: 1rem;
+			text-decoration: none;
+		}
+
+		/* Change the color of links on hover */
+		.navCon a:hover {
+			background-color: #ddd;
+			color: black;
+		}
+		/* Table styles */
+		#myTable {
+			border-collapse: collapse;
+			width: 100%;
+			max-width: 600px;
+			margin: 0 auto;
+		}
+
+		#myTable th,
+		#myTable td {
+			border: 1px solid rgb(68, 63, 63);
+			padding: 8px;
+			text-align: center;
+		}
+
+		#myTable th {
+			background-color: #f2f2f2;
+			font-weight: bold;
+		}
+	</style>
+
+</head>
+
+<body>
+
+
+	<div class="container">
+		<div class="container mt-5 ">
+			<!-- Links in the navigation bar -->
+			<div class=" navCon">
+
+				<a href="/index.html">Vote</a>
+
+				<a href="/AddVoters.html">Add new candidate</a>
+
+			</div><br>
+			  <!-- Main content card -->
+			<div class="card container"
+				style="box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;">
+
+				<div>
+					 <!-- Button to connect to Metamask -->
+					<button onclick="connectMetamask()">Connect Metamask</button>
+					<!-- Paragraph to show Metamask connection status -->
+					<p id="metamasknotification"></p>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+						<div class="container">
+							<!-- Form to add a new candidate -->
+							<form method="POST" action="/vote" enctype="multipart/form-data">
+								<span>Add candidate here</span>
+								<input type="text" name="vote" placeholder="Add name of candidate ... ">
+								<input type="submit" value="Add Candidate">
+							</form>
+						</div>
+
+						<div>
+							<!-- Paragraph to display voting status -->
+							<p id="votingStatus"></p>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div>
+							<!-- Button to list all candidates -->
+							<button onclick="getAllCandidates()">List All Candidates</button>
+							<!-- Paragraph to show status messages -->
+							<p id="p3"></p>
+						</div>
+						<!-- Table to display candidates and their votes -->
+						<div class="mb-5 table-responsive">
+							<table class="table table-striped" id="myTable">
+								<thead>
+									<tr>
+										<th>Index</th>
+										<th>Candidate name</th>
+										<th>Candidate votes</th>
+									</tr>
+								</thead>
+								<tbody>
+									<!-- Table body content will be filled dynamically -->
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+</body>
+<!-- Load Bootstrap JavaScript from a CDN -->
+<script src=" 	https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</html>
